@@ -1,0 +1,27 @@
+@font-face {
+  font-family: Lato;
+  src: url("../assets/fonts/Lato-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("../assets/fonts/Lato-Black.woff2") format("woff2");
+  font-weight: 900;
+}
+
+body,
+p {
+  font-family: Lato;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Lato;
+  font-weight: 900;
+}
