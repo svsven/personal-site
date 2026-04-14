@@ -1,0 +1,96 @@
+.contact {
+  --color-bg: hsl(210, 35%, 13%);
+  --border-angle: 0turn;
+  --bg-gradient: conic-gradient(
+    from var(--border-angle),
+    var(--color-bg),
+    var(--color-bg)
+  );
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    oklch(from var(--color-accent) 0.2 c h),
+    var(--color-accent) 99%,
+    transparent
+  );
+
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  margin: 2rem auto 0;
+  border: solid 2px transparent;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 35px 0px var(--color-accent-semitransparent);
+  background:
+    var(--bg-gradient) padding-box,
+    var(--gradient-border) border-box,
+    var(--bg-gradient) border-box;
+  background-position: center center;
+  animation: bg-spin 6s linear infinite;
+
+  @media (min-width: 600px) {
+    margin: 2rem 0 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: bg-spin 12s linear infinite;
+  }
+}
+
+.contact a {
+  padding: 1rem 1.5rem;
+  border-right: solid 1px var(--color-accent-semitransparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:first-of-type {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+  }
+
+  &:last-of-type {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  }
+
+  &:hover {
+    background: hsl(210, 30%, 0%)
+      radial-gradient(
+        oklch(from var(--color-accent) l c h / 0.15),
+        var(--color-bg)
+      );
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:last-of-type {
+    border-right: none;
+  }
+}
+
+.contact:hover a:not(:hover) path {
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+.contact svg {
+  transition: transform 350ms ease;
+  transform-origin: center;
+
+  path {
+    transition: fill 500ms;
+    fill: white;
+  }
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}

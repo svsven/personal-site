@@ -1,4 +1,4 @@
-/* joshwcomeau modern CSS reset */
+/* based on joshwcomeau modern CSS reset */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -19,12 +19,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img, svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+button {
   font: inherit;
 }
 
@@ -37,8 +37,4 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
-}
-
-#root, #__next {
-  isolation: isolate;
 }

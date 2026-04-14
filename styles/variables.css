@@ -1,0 +1,11 @@
+:root {
+  --color-bg-dark: hsl(210, 30%, 0%);
+  --color-bg-accent: hsl(210 35% 26%);
+  --color-accent: oklch(0.89 0.17 167);
+  --color-accent-semitransparent: oklch(from var(--color-accent) l c h / 0.25);
+
+  --border-radius: 8px;
+
+  --font-color-main: oklch(0.7 0.04 257);
+  --font-color-headings: white;
+}
