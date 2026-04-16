@@ -25,6 +25,10 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm run build
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v2
+        with:
+          chrome-version: stable
       - name: Test accessibility
         run: pnpm dlx pa11y-ci ./dist/index.html
       - name: Upload build artifact
