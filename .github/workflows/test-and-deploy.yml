@@ -27,7 +27,7 @@ jobs:
         run: pnpm run build
       - run: pnpm run preview & pnpm dlx wait-on http://localhost:4173
       - name: Test accessibility
-        run: pnpm dlx pa11y-ci ./dist/index.html
+        run: pnpm dlx pa11y-ci http://localhost:4173
       - name: Upload build artifact
         uses: actions/upload-artifact@v7
         with:
