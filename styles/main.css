@@ -152,7 +152,7 @@ footer {
 
 .pattern {
   margin: 1rem;
-  min-height: 100vh;
+  min-height: calc(100vh - 2rem);
   height: 100%;
   background-image:
     radial-gradient(
