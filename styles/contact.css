@@ -37,6 +37,10 @@
   }
 }
 
+html[data-reduce-motion="true"] .contact {
+  animation: bg-spin 12s linear infinite;
+}
+
 .contact a {
   padding: 1rem 1.5rem;
   border-right: solid 1px var(--color-accent-semitransparent);

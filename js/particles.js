@@ -92,6 +92,8 @@ const toggleParticles = (newState = false) => {
   container.style.display = newState ? "block" : "none";
   toggleOffLine.style.display = newState ? "none" : "block";
 
+  toggleReduceMotion(!newState);
+
   if (!animations || animations.length === 0) {
     createParticles(
       isLargerScreen.matches
@@ -127,6 +129,10 @@ isLargerScreen.onchange = (e) => {
   );
 };
 
+const toggleReduceMotion = (reduceMotion = false) => {
+  document.documentElement.setAttribute("data-reduce-motion", reduceMotion);
+};
+
 const initialize = () => {
   localStorage.setItem(
     STATE_KEY,
@@ -134,12 +140,14 @@ const initialize = () => {
   );
 
   if (!prefersReducedMotion.matches) {
+    toggleReduceMotion(false);
     createParticles(
       isLargerScreen.matches
         ? PARTICLE_COUNT_LARGE_SCREEN
         : PARTICLE_COUNT_SMALL_SCREEN,
     );
   } else {
+    toggleReduceMotion(true);
     toggleOffLine.style.display = "block";
   }
 };

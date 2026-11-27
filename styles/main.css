@@ -190,6 +190,11 @@ footer {
   }
 }
 
+html[data-reduce-motion="true"] .pattern::before,
+html[data-reduce-motion="true"] .pattern::after {
+  animation: none;
+}
+
 @keyframes fade {
   from {
     opacity: 0.4;
