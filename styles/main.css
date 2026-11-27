@@ -154,17 +154,47 @@ footer {
   margin: 1rem;
   min-height: calc(100vh - 2rem);
   height: 100%;
-  background-image:
-    radial-gradient(
-      oklch(from var(--color-accent) l c h / 0.2) 1px,
-      transparent 1px
-    ),
-    radial-gradient(
-      oklch(from var(--color-accent) l c h / 0.2) 1px,
-      transparent 1px
-    );
+  position: relative;
+}
+
+.pattern::before,
+.pattern::after {
+  opacity: 0.8;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    oklch(from var(--color-accent) l c h / 0.2) 1px,
+    transparent 1px
+  );
   background-size: 2rem 2rem;
-  background-position:
-    0 0,
-    1rem 1rem;
+}
+
+.pattern::before {
+  background-position: 0 0;
+  animation: fade 3s ease-in-out infinite alternate;
+}
+
+.pattern::after {
+  background-position: 1rem 1rem;
+  animation: fade 3s ease-in-out infinite alternate;
+  animation-delay: 2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pattern::before,
+  .pattern::after {
+    animation: none;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
